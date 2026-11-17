@@ -1,0 +1,13 @@
+Package: icegergert
+Architecture: all
+Version: 1.0.0
+Maintainer: icegergert <user@example.com>
+Depends: maxima, bash, sed, grep, coreutils
+Filename: ./icegergert_1.0.0_all.deb
+Size: 1384
+MD5sum: 9d12b0028df64d8eca656cc4e67ca325
+SHA1: fb09984dcf95a0cb1350ba1c67256e7bf65cf802
+SHA256: 24249e8252ad46df2ae073c9b712b5404431ce43b19eea8ef512c4d33432a88f
+SHA512: d55d4346a0a8db5a8f1bb16696da26cdca1543f592a7a631b9d8639c6b43d3f6011921fde0cc90b275a3552b050853ec22990071bade5afc27b0c8fc26ca40da
+Description: CLI tool for symbolic integration and antiderivatives
+
