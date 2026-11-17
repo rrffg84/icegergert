@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 if [ -z "$1" ]; then echo "Использование: icegergert <функция> (или bgriffin <функция>)"; exit 1; fi
 expr=$(echo "$*" | sed -E 's/[[:space:]]*dx$//; s/\barctg\b/atan/g; s/\barcctg\b/acot/g; s/\barcsin\b/asin/g; s/\barccos\b/acos/g; s/\btg\b/tan/g; s/\bctg\b/cot/g; s/\bln\b/log/g; s/(sin|cos|tan|cot|asin|acos|atan|acot|log)[[:space:]]+([a-zA-Z0-9_]+)/\1(\2)/g; s/(sin|cos|tan|cot|asin|acos|atan|acot|log)\^([0-9]+)\(([^)]+)\)/\1(\3)^\2/g; s/([0-9])([a-zA-Z(])/\1*\2/g; s/(\))([0-9a-zA-Z(])/\1*\2/g; s/\bx[[:space:]]+(sin|cos|tan|cot|asin|acos|atan|acot|log|e\^)/x*\1/g; s/\be\b/%e/g; s/\bpi\b/%pi/g')
 maxima --very-quiet -r "display2d:false\$ assume(not equal(y,-1))\$ res: integrate($expr, x)\$ print(trigsimp(res))\$ quit()\$" | grep -vE "Loading|display2d|assume|res:|print\(|quit\(\)" | tr -d " \n" | sed -E 's/%e/e/g; s/%pi/pi/g; s/%i/i/g; s/\blog\b/ln/g; s/\btan\b/tg/g; s/\bcot\b/ctg/g; s/\basin\b/arcsin/g; s/\bacos\b/arccos/g; s/\batan\b/arctg/g; s/\bacot\b/arcctg/g'
